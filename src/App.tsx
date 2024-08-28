@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Input from "./components/Input/Input";
 
 function App() {
+  const [value, setValue] = useState<string>("");
+
+  const handleChange = (e: any) => {
+    setValue(e.target.value);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <Input
+          value={value}
+          onChange={handleChange}
+          label="Email"
+          placeholder="Input..."
+          required
+          hint="This is a hint"
+        />
+        <Input
+          value={value}
+          onChange={handleChange}
+          label="Email"
+          placeholder="Input..."
+          required
+        />
+      </div>
     </div>
   );
 }

@@ -1,0 +1,19 @@
+.label {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+  
+  .labelInfo {
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background-image: url('../../icons/info.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-left: 5px;
+    }
+  }
