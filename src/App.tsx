@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import Input from "./components/Input/Input";
+import InputGroup from "./components/InputGroup/InputGroup";
 
 function App() {
   const [value, setValue] = useState<string>("");
@@ -11,20 +11,14 @@ function App() {
   return (
     <div className="App">
       <div>
-        <Input
+        <InputGroup
           value={value}
           onChange={handleChange}
           label="Email"
           placeholder="Input..."
           required
           hint="This is a hint"
-        />
-        <Input
-          value={value}
-          onChange={handleChange}
-          label="Email"
-          placeholder="Input..."
-          required
+          infoIcon
         />
       </div>
     </div>

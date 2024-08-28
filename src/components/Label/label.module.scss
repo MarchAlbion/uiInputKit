@@ -1,19 +1,56 @@
-.label {
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-  }
+.labelContainer {
+  display: flex;
   
-  .labelInfo {
-    &:after {
-      content: '';
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      background-image: url('../../icons/info.svg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      margin-left: 5px;
-    }
+}
+
+.label {
+  font-weight: bold;
+  cursor: inherit;
+}
+
+.labelInfoIcon {
+  margin-left: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  & > img {
+    width: 12px;
+    height: auto;
   }
+}
+
+.iconTooltip {
+  font-size: inherit;
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  background-color: #131316;
+  color: white;
+  padding: 8px 12px;
+  justify-content: center;
+  align-items: center;
+  min-width: 30px;
+  min-height: 36px;
+  width: fit-content;
+  border-radius: 0.7rem;
+  white-space: nowrap;
+  font-weight: bolder;
+  z-index: 5;
+
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 80%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    background-color: #131316;
+    transform: rotate(45deg);
+    border-radius: 2px;
+    z-index: 5;
+  }
+}

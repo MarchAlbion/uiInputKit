@@ -1,0 +1,41 @@
+.inputGroup {
+  color: #1a1a1e;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+
+  &--xs,
+  &--md {
+    gap: 4px;
+    line-height: 20px;
+    font-size: 12px;
+  }
+
+  &--lg,
+  &--xl {
+    gap: 6px;
+    line-height: 24px;
+    font-size: 14px;
+  }
+
+  &--disabled {
+    opacity: 0.5;
+
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.inputGroupContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &--side {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

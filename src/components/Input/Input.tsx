@@ -1,11 +1,8 @@
-
-import style from "./input.module.scss";
-import { ChangeEvent } from "react";
 import classNames from "classnames";
-import Label from "../Label/Label";
-import Hint from "../Hint/Hint";
+import { ChangeEvent } from "react";
+import style from "./input.module.scss";
 
-type InputProps = {
+type Props = {
   label?: string;
   type?: string;
   value: string | number;
@@ -20,49 +17,32 @@ type InputProps = {
 };
 
 export default function Input({
-  label,
   type,
   value,
   onChange,
   placeholder,
-  hint,
   size = "md",
-  side = false,
   quiet = false,
   disabled = false,
   required = false,
-}: InputProps) {
-  const labelPosition = side ? "side" : "";
+  side = false,
+}: Props) {
   const isQuiet = quiet ? "quiet" : "";
-
-
-  console.log(isQuiet);
+  const labelPosition = side ? "side" : "";
   return (
-    <div>
-      <div
-        className={classNames(
-          style.inputGroup,
-          style[`inputGroup--${size}`],
-          style[`inputGroup--${labelPosition}`]
-        )}
-      >
-        <Label label={label} required={required} />
-        <input
-          className={classNames(
-            style.input,
-            style[`input--${size}`],
-            style[`input--${labelPosition}`],
-            style[`input--${isQuiet}`]
-          )}
-          onChange={onChange}
-          type={type}
-          value={value}
-          placeholder={placeholder}
-          disabled={disabled}
-          required
-        />
-      </div>
-      {hint && <Hint hint={hint}/>}
-    </div>
+    <input
+      className={classNames(
+        style.input,
+        style[`input--${size}`],
+        style[`input--${labelPosition}`],
+        style[`input--${isQuiet}`]
+      )}
+      onChange={onChange}
+      type={type}
+      value={value}
+      placeholder={placeholder}
+      disabled={disabled}
+      required={required}
+    />
   );
 }
