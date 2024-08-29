@@ -1,5 +1,12 @@
 .inputHint {
-    color: inherit;
-    font-size: inherit;
-    font-weight: bold;
-   }
+  color: inherit;
+  font-size: inherit;
+  font-weight: bold;
+
+  &--error {
+    color: #f05f61;
+  }
+  &--side {
+    text-align: right;
+  }
+}

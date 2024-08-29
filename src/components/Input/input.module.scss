@@ -1,49 +1,103 @@
 .input {
-    color: inherit;
-    display: flex;
-    border: 1px solid #d1d1d6;
-    border-radius: 0.125rem;
-    font-size: inherit;
-    line-height: inherit;
-    box-sizing: border-box;
-    font-weight: bold;
-    transition: all 0.2s ease-in-out;
-    cursor: inherit;
-  
-    &--quiet {
-      border: 1px solid transparent;
-  
-      &:hover {
-        border: 1px solid #d1d1d6;
-      }
+  color: inherit;
+  display: flex;
+  border: 1px solid #d1d1d6;
+  border-radius: 0.125rem;
+  font-size: inherit;
+  line-height: inherit;
+  box-sizing: border-box;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+  cursor: inherit;
+  width: 100%;
+
+  &--quiet {
+    border: 1px solid transparent;
+
+    &:hover {
+      border: 1px solid #d1d1d6;
     }
-  
-    &--xs {
-      padding: 2px 12px;
-    }
-  
-    &--md {
-      padding: 8px 12px;
-    }
-  
-    &--lg {
-      padding: 8px 16px;
-    }
-  
-    &--xl {
-      padding: 12px 16px;
-    }
-  
-    &:focus {
-      outline: none;
-      border: 1px solid #84caff;
-      box-shadow: 0 0 0 2px #c5ddf8;
-    }
-  
-    &--side {
-      text-align: right;
-    }
-  
-  
   }
-  
+
+  &--xs {
+    padding: 2px 12px;
+  }
+
+  &--md {
+    padding: 8px 12px;
+  }
+
+  &--lg {
+    padding: 8px 16px;
+  }
+
+  &--xl {
+    padding: 12px 16px;
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid #84caff;
+    box-shadow: 0 0 0 2px #c5ddf8;
+  }
+
+  &--side {
+    text-align: right;
+  }
+
+  &--error {
+    border: 1px solid #ff4d4f;
+
+    &:focus {
+      border: 1px solid #f05f61;
+      outline: none;
+      box-shadow: 0px 0px 0px 4px #f044383d;
+    }
+  }
+  &--searchIcon {
+    padding-left: 28px;
+  }
+}
+
+.inputContainer {
+  display: flex;
+  width: 100%;
+  position: relative;
+
+  &--side {
+    width: auto;
+  }
+}
+
+.searchIcon {
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  top: 50%;
+  left: 14px;
+  color: #a0a0ab;
+
+  &--error {
+    color: #ff4d4f;
+  }
+}
+
+.helpIcon {
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  top: 50%;
+  right: 14px;
+
+  & > svg {
+    color: red;
+  }
+
+  &--error {
+    color: #ff4d4f;
+  }
+}

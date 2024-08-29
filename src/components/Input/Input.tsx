@@ -1,6 +1,8 @@
 import classNames from "classnames";
 import { ChangeEvent } from "react";
 import style from "./input.module.scss";
+import { ReactComponent as SearchIcon } from "../../icons/searchIcon.svg";
+import { ReactComponent as HelpIcon } from "../../icons/helpicon.svg";
 
 type Props = {
   label?: string;
@@ -14,6 +16,9 @@ type Props = {
   quiet?: boolean;
   disabled?: boolean;
   required?: boolean;
+  error?: boolean;
+  searchIcon?: boolean;
+  helpIcon?: boolean;
 };
 
 export default function Input({
@@ -26,23 +31,58 @@ export default function Input({
   disabled = false,
   required = false,
   side = false,
+  error = false,
+  searchIcon,
+  helpIcon,
 }: Props) {
   const isQuiet = quiet ? "quiet" : "";
   const labelPosition = side ? "side" : "";
+  const isError = error ? "error" : "";
+  const isSearchIcon = searchIcon ? "searchIcon" : "";
+  const isSearchIconError = error && searchIcon ? "error" : "";
+  const isHelpIcon = helpIcon ? "helpIcon" : "";
+  const isHelpIconError = error && helpIcon ? "error" : "";
   return (
-    <input
+    <div
       className={classNames(
-        style.input,
-        style[`input--${size}`],
-        style[`input--${labelPosition}`],
-        style[`input--${isQuiet}`]
+        style.inputContainer,
+        style[`inputContainer--${labelPosition}`]
       )}
-      onChange={onChange}
-      type={type}
-      value={value}
-      placeholder={placeholder}
-      disabled={disabled}
-      required={required}
-    />
+    >
+      {searchIcon && (
+        <SearchIcon
+          className={classNames(
+            style.searchIcon,
+            style[`searchIcon--${isSearchIconError}`]
+          )}
+        />
+      )}
+
+      <input
+        className={classNames(
+          style.input,
+          style[`input--${size}`],
+          style[`input--${labelPosition}`],
+          style[`input--${isQuiet}`],
+          style[`input--${isError}`],
+          style[`input--${isSearchIcon}`],
+        )}
+        id="input"
+        onChange={onChange}
+        type={type}
+        value={value}
+        placeholder={placeholder}
+        disabled={disabled}
+        required={required}
+      />
+      {helpIcon && (
+        <HelpIcon
+          className={classNames(
+            style.helpIcon,
+            style[`helpIcon--${isHelpIconError}`]
+          )}
+        />
+      )}
+    </div>
   );
 }

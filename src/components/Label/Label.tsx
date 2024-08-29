@@ -7,15 +7,17 @@ type Props = {
   required?: boolean;
   label?: string;
   infoIcon?: boolean;
+  tooltip?: string;
 };
 
-export default function Label({ required, label, infoIcon }: Props) {
+export default function Label({ required, label, infoIcon, tooltip }: Props) {
   const isRequired = required ? "(required)" : "";
   const [isTollkit, setIsTollkit] = useState(false);
 
   return (
     <div className={classNames(style.labelContainer)}>
       <label
+        htmlFor="input"
         className={classNames(style.label, { [style.labelInfoIcon]: infoIcon })}
       >
         {label + " " + isRequired}
@@ -27,9 +29,7 @@ export default function Label({ required, label, infoIcon }: Props) {
           onMouseLeave={() => setIsTollkit(false)}
         >
           {isTollkit && (
-            <span className={classNames(style.iconTooltip)}>
-              This is a tooltip
-            </span>
+            <span className={classNames(style.iconTooltip)}>{tooltip}</span>
           )}
           <img src={infoIconSvg} alt="info" />
         </div>

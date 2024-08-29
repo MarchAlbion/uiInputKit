@@ -18,6 +18,10 @@ type InputProps = {
   disabled?: boolean;
   required?: boolean;
   infoIcon?: boolean;
+  error?: boolean;
+  tooltip?: string;
+  searchIcon?: boolean;
+  helpIcon?:boolean;
 };
 
 export default function InputGroup({
@@ -33,6 +37,10 @@ export default function InputGroup({
   disabled = false,
   required = false,
   infoIcon = false,
+  error = false,
+  tooltip,
+  searchIcon = false,
+  helpIcon = false,
 }: InputProps) {
   const labelPosition = side ? "side" : "";
   const isDisabled = disabled ? "disabled" : "";
@@ -42,7 +50,7 @@ export default function InputGroup({
         style.inputGroup,
         style[`inputGroup--${size}`],
         style[`inputGroup--${labelPosition}`],
-        style[`inputGroup--${isDisabled}`],
+        style[`inputGroup--${isDisabled}`]
       )}
     >
       <div
@@ -51,7 +59,12 @@ export default function InputGroup({
           style[`inputGroupContainer--${labelPosition}`]
         )}
       >
-        <Label label={label} required={required} infoIcon={infoIcon} />
+        <Label
+          label={label}
+          required={required}
+          infoIcon={infoIcon}
+          tooltip={tooltip}
+        />
         <Input
           onChange={onChange}
           type={type}
@@ -62,9 +75,12 @@ export default function InputGroup({
           side={side}
           size={size}
           quiet={quiet}
+          error={error}
+          searchIcon={searchIcon}
+          helpIcon={helpIcon}
         />
       </div>
-      {hint && <Hint hint={hint} />}
+      {hint && <Hint hint={hint} error={error} labelPosition={labelPosition} />}
     </div>
   );
 }

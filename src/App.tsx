@@ -16,9 +16,13 @@ function App() {
           onChange={handleChange}
           label="Email"
           placeholder="Input..."
-          required
           hint="This is a hint"
           infoIcon
+          error
+          size='md'
+          tooltip='This is a tooltip'
+          searchIcon
+          helpIcon
         />
       </div>
     </div>
