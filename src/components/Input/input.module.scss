@@ -57,6 +57,9 @@
   &--searchIcon {
     padding-left: 28px;
   }
+  &--helpIcon {
+    padding-right: 45px;
+  }
 }
 
 .inputContainer {
@@ -85,19 +88,17 @@
 }
 
 .helpIcon {
-  height: 15px;
-  width: 15px;
+  height: 16px;
+  width: 16px;
   position: absolute;
   transform: translate(-50%, -50%);
   display: inline-block;
   top: 50%;
   right: 14px;
+  fill: #a0a0ab;
 
-  & > svg {
-    color: red;
-  }
 
   &--error {
-    color: #ff4d4f;
+    fill: #ff4d4f;
   }
 }

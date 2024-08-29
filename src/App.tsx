@@ -18,8 +18,7 @@ function App() {
           placeholder="Input..."
           hint="This is a hint"
           infoIcon
-          error
-          size='md'
+          size='xl'
           tooltip='This is a tooltip'
           searchIcon
           helpIcon

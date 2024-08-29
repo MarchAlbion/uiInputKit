@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { ChangeEvent } from "react";
 import style from "./input.module.scss";
 import { ReactComponent as SearchIcon } from "../../icons/searchIcon.svg";
-import { ReactComponent as HelpIcon } from "../../icons/helpicon.svg";
+import { ReactComponent as HelpIcon } from "../../icons/help.svg";
 
 type Props = {
   label?: string;
@@ -66,6 +66,7 @@ export default function Input({
           style[`input--${isQuiet}`],
           style[`input--${isError}`],
           style[`input--${isSearchIcon}`],
+          style[`input--${isHelpIcon}`],
         )}
         id="input"
         onChange={onChange}
