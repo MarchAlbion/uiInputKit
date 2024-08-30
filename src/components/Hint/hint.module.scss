@@ -1,10 +1,13 @@
+@import '../../styles/colors.scss';
+@import '../../styles/theme.scss';
+
 .inputHint {
-  color: inherit;
+  color: var(--hint-font-color);
   font-size: inherit;
   font-weight: bold;
 
   &--error {
-    color: #f05f61;
+    color: var(--hint-error-color);
   }
   &--side {
     text-align: right;

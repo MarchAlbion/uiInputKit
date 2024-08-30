@@ -1,5 +1,9 @@
+@import '../../styles/colors.scss';
+@import '../../styles/theme.scss';
+
+
 .inputGroup {
-  color: #1a1a1e;
+  color: var(--primary-font);
   font-family: "Inter", sans-serif;
   display: flex;
   flex-direction: column;

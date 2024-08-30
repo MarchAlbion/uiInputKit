@@ -1,5 +1,5 @@
 import style from "./inputGroup.module.scss";
-import { ChangeEvent } from "react";
+import { ChangeEvent, MouseEvent, FocusEvent, FormEvent } from "react";
 import classNames from "classnames";
 import Label from "../Label/Label";
 import Hint from "../Hint/Hint";
@@ -7,9 +7,14 @@ import Input from "../Input/Input";
 
 type InputProps = {
   label?: string;
-  type?: string;
+  type: string;
   value: string | number;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
+  onSubmit?: (e: FormEvent<HTMLFormElement>) => void;
+  onFocus?: (e: FocusEvent<HTMLInputElement>) => void;
+  onMouseEnter?: (e: MouseEvent<HTMLInputElement>) => void;
+  onMouseLeave?: (e: MouseEvent<HTMLInputElement>) => void;
   placeholder?: string;
   hint?: string;
   size?: "xs" | "md" | "lg" | "xl";
@@ -21,7 +26,9 @@ type InputProps = {
   error?: boolean;
   tooltip?: string;
   searchIcon?: boolean;
-  helpIcon?:boolean;
+  helpIcon?: boolean;
+  textAlign?: "left" | "right";
+  theme?: "light" | "dark";
 };
 
 export default function InputGroup({
@@ -29,6 +36,11 @@ export default function InputGroup({
   type,
   value,
   onChange,
+  onBlur,
+  onSubmit,
+  onFocus,
+  onMouseEnter,
+  onMouseLeave,
   placeholder,
   hint,
   size = "md",
@@ -41,6 +53,8 @@ export default function InputGroup({
   tooltip,
   searchIcon = false,
   helpIcon = false,
+  textAlign = "left",
+  theme = "light",
 }: InputProps) {
   const labelPosition = side ? "side" : "";
   const isDisabled = disabled ? "disabled" : "";
@@ -52,6 +66,7 @@ export default function InputGroup({
         style[`inputGroup--${labelPosition}`],
         style[`inputGroup--${isDisabled}`]
       )}
+      data-theme={theme}
     >
       <div
         className={classNames(
@@ -59,14 +74,22 @@ export default function InputGroup({
           style[`inputGroupContainer--${labelPosition}`]
         )}
       >
-        <Label
-          label={label}
-          required={required}
-          infoIcon={infoIcon}
-          tooltip={tooltip}
-        />
+        {label && (
+          <Label
+            label={label}
+            required={required}
+            infoIcon={infoIcon}
+            tooltip={tooltip}
+          />
+        )}
+
         <Input
           onChange={onChange}
+          onBlur={onBlur}
+          onSubmit={onSubmit}
+          onFocus={onFocus}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
           type={type}
           value={value}
           placeholder={placeholder}
@@ -78,6 +101,7 @@ export default function InputGroup({
           error={error}
           searchIcon={searchIcon}
           helpIcon={helpIcon}
+          textAlign={textAlign}
         />
       </div>
       {hint && <Hint hint={hint} error={error} labelPosition={labelPosition} />}

@@ -8,20 +8,19 @@ function App() {
   const handleChange = (e: any) => {
     setValue(e.target.value);
   };
+  const handleBlur = (e: any) => {
+    console.log(e);
+  };
+  const handleSubmit = (e: any) => {
+    console.log(e);
+  };
   return (
     <div className="App">
       <div>
         <InputGroup
           value={value}
           onChange={handleChange}
-          label="Email"
-          placeholder="Input..."
-          hint="This is a hint"
-          infoIcon
-          size='xl'
-          tooltip='This is a tooltip'
-          searchIcon
-          helpIcon
+          type="text"
         />
       </div>
     </div>

@@ -1,0 +1,28 @@
+@import "./colors.scss";
+
+[data-theme="light"] {
+  --primary-font: #{$Primary};
+  --border-color: #{$LightGrey};
+  --focus-color: #{$LightBlue};
+  --shadow-color: #{$BlueShadow};
+  --error-border-color: #{$LightRed};
+  --error-shadow-color: #{$RedShadow};
+  --tooltip-font: #{$White};
+  --tooltip-background: #{$Black};
+  --hint-font-color: #{$DarkGrey};
+  --hint-error-color: #{$Red};
+}
+
+
+[data-theme="dark"] {
+    --primary-font: #{$Primary-dark-theme};
+    --border-color: #{$LightGrey-dark-theme};
+    --focus-color: #{$LightBlue-dark-theme};
+    --shadow-color: #{$BlueShadow-dark-theme};
+    --error-border-color: #{$LightRed-dark-theme};
+    --error-shadow-color: #{$RedShadow-dark-theme};
+    --tooltip-font: #{$Black};
+    --tooltip-background: #{$White};
+    --hint-font-color: #{$Grey};
+    --hint-error-color: #{$Red-dark-theme};
+  }

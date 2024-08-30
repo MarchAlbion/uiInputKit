@@ -1,7 +1,10 @@
+@import "../../styles/colors.scss";
+@import "../../styles/theme.scss";
+
 .input {
   color: inherit;
   display: flex;
-  border: 1px solid #d1d1d6;
+  border: 1px solid var(--border-color);
   border-radius: 0.125rem;
   font-size: inherit;
   line-height: inherit;
@@ -10,14 +13,7 @@
   transition: all 0.2s ease-in-out;
   cursor: inherit;
   width: 100%;
-
-  &--quiet {
-    border: 1px solid transparent;
-
-    &:hover {
-      border: 1px solid #d1d1d6;
-    }
-  }
+  background-color: transparent;
 
   &--xs {
     padding: 2px 12px;
@@ -37,23 +33,40 @@
 
   &:focus {
     outline: none;
-    border: 1px solid #84caff;
-    box-shadow: 0 0 0 2px #c5ddf8;
+    border: 1px solid var(--focus-color);
+    box-shadow: 0 0 0 2px var(--shadow-color);
   }
 
   &--side {
     text-align: right;
   }
 
+  &--right {
+    text-align: right;
+  }
+
+  &--left {
+    text-align: left;
+  }
+
   &--error {
-    border: 1px solid #ff4d4f;
+    border: 1px solid var(--error-border-color);
 
     &:focus {
-      border: 1px solid #f05f61;
+      border: 1px solid var(--error-border-color);
       outline: none;
-      box-shadow: 0px 0px 0px 4px #f044383d;
+      box-shadow: 0px 0px 0px 4px var(--error-shadow-color);
     }
   }
+
+  &--quiet {
+    border: 1px solid transparent;
+
+    &:hover {
+      border: 1px solid var(--border-color);
+    }
+  }
+
   &--searchIcon {
     padding-left: 28px;
   }
@@ -79,11 +92,12 @@
   transform: translate(-50%, -50%);
   display: inline-block;
   top: 50%;
-  left: 14px;
-  color: #a0a0ab;
+  left: 15px;
+  color: var(--hint-font-color);
+  z-index: -1;
 
   &--error {
-    color: #ff4d4f;
+    color: var(--hint-error-color);
   }
 }
 
@@ -92,13 +106,12 @@
   width: 16px;
   position: absolute;
   transform: translate(-50%, -50%);
-  display: inline-block;
   top: 50%;
-  right: 14px;
-  fill: #a0a0ab;
-
+  right: 12px;
+  fill: var(--hint-font-color);
+  z-index: -1;
 
   &--error {
-    fill: #ff4d4f;
+    fill: var(--hint-error-color);
   }
 }

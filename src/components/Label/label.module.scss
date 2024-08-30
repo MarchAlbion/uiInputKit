@@ -1,3 +1,7 @@
+@import '../../styles/colors.scss';
+@import '../../styles/theme.scss';
+
+
 .labelContainer {
   display: flex;
   
@@ -26,8 +30,8 @@
   position: absolute;
   bottom: 30px;
   display: flex;
-  background-color: #131316;
-  color: white;
+  background-color: var(--tooltip-background);
+  color: var(--tooltip-font);
   padding: 8px 12px;
   justify-content: center;
   align-items: center;
@@ -48,7 +52,7 @@
     transform: translateY(-50%);
     width: 15px;
     height: 15px;
-    background-color: #131316;
+    background-color: var(--tooltip-background);
     transform: rotate(45deg);
     border-radius: 2px;
     z-index: 5;
